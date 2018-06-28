@@ -42,6 +42,7 @@ class User extends \yii\db\ActiveRecord
             [['login'], 'unique'],
             [['login'], 'string', 'min' => 4],
             [['password'], 'string', 'min' => 6],
+            [['name', 'surname'], 'match', 'pattern' => '/[A-Z]{1}/', 'message' => 'Первая буква должна быть с заглавной'],
         ];
     }
 
