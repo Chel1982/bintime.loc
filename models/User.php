@@ -50,11 +50,11 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'login' => 'Login',
-            'password' => 'Password',
-            'name' => 'Name',
-            'surname' => 'Surname',
-            'gender' => 'Gender',
+            'login' => 'Логин',
+            'password' => 'Пароль',
+            'name' => 'Имя пользователя',
+            'surname' => 'Фамилия пользователя',
+            'gender' => 'Пол',
             'email' => 'Email',
             'created_at' => 'Created At',
         ];
@@ -65,6 +65,6 @@ class User extends \yii\db\ActiveRecord
      */
     public function getAddresses()
     {
-        return $this->hasMany(Address::className(), ['user_id' => 'id']);
+        return $this->hasMany(Address::class, ['user_id' => 'id']);
     }
 }

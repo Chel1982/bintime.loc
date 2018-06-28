@@ -37,7 +37,7 @@ class Address extends \yii\db\ActiveRecord
             [['postcode', 'house', 'apartment', 'user_id'], 'integer'],
             [['city'], 'string', 'max' => 2],
             [['street'], 'string', 'max' => 255],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
@@ -48,11 +48,11 @@ class Address extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'postcode' => 'Postcode',
-            'city' => 'City',
-            'street' => 'Street',
-            'house' => 'House',
-            'apartment' => 'Apartment',
+            'postcode' => 'Почтовый индекс',
+            'city' => 'Город',
+            'street' => 'Улица',
+            'house' => 'Дом',
+            'apartment' => 'Квартира',
             'user_id' => 'User ID',
         ];
     }
@@ -62,6 +62,6 @@ class Address extends \yii\db\ActiveRecord
      */
     public function getUser()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(User::class, ['id' => 'user_id']);
     }
 }
