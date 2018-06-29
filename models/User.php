@@ -34,7 +34,7 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['login', 'password', 'name', 'surname', 'gender', 'email', 'created_at'], 'required'],
+            [['login', 'password', 'name', 'surname', 'gender', 'email'], 'required'],
             [['gender'], 'string'],
             [['created_at'], 'safe'],
             [['login', 'password', 'name', 'surname', 'email'], 'string', 'max' => 255],
@@ -42,7 +42,7 @@ class User extends \yii\db\ActiveRecord
             [['login'], 'unique'],
             [['login'], 'string', 'min' => 4],
             [['password'], 'string', 'min' => 6],
-            [['name', 'surname'], 'match', 'pattern' => '/[A-Z]{1}/', 'message' => 'Первая буква должна быть с заглавной'],
+            [['name', 'surname'], 'match', 'pattern' => '/[A-ZА-Я]{1}/', 'message' => 'Первая буква должна быть с заглавной'],
         ];
     }
 
